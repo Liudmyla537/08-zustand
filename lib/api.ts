@@ -4,7 +4,7 @@ import { CreateNote, Note, NoteTag } from "@/types/note";
 export const BASE_URL = "https://notehub-public.goit.study/api/notes";
 const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
-interface FetchNotesResponse {
+export interface FetchNotesResponse {
   notes: Note[];
   totalPages: number;
 }
@@ -43,3 +43,7 @@ export const deleteNote = async (id: string): Promise<Note> => {
   });
   return res.data;
 };
+
+// export const getCategories = async () => {
+//   return Tags
+// }
