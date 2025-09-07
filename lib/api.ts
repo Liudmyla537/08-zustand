@@ -43,7 +43,3 @@ export const deleteNote = async (id: string): Promise<Note> => {
   });
   return res.data;
 };
-
-// export const getCategories = async () => {
-//   return Tags
-// }

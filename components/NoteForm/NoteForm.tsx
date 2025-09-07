@@ -8,8 +8,6 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import useNoteDraftStore from "@/lib/store/noteStore";
 
-
-
 interface NoteFormValues {
   title: string;
   content: string;
@@ -108,7 +106,6 @@ export default function NoteForm({onCancel}: NoteFormProps) {
 
         <div className={css.actions}>
         <button type="button" className={css.cancelButton} onClick={onCancel ?? (() => router.back())}>
-          
             Cancel
           </button>
           <button type="submit" className={css.submitButton} disabled={false}>
