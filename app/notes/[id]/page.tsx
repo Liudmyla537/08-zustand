@@ -1,12 +1,13 @@
 import { QueryClient, dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { BASE_URL, fetchNoteById } from "@/lib/api";
+import { fetchNoteById } from "@/lib/api";
 import NoteDetailsClient from "./NoteDetails.client";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-export async function generateMetadata({params}:Props) {
+export async function generateMetadata({params}:Props): Promise<Metadata> {
   const { id } = await params
   const note = await fetchNoteById(id)
   return {
@@ -15,7 +16,7 @@ export async function generateMetadata({params}:Props) {
     openGraph: {
       title: `Note: ${note.title}`,
       description: note.content.slice(0, 150),
-      url: `${BASE_URL}/${id}`,
+      url: `https://08-zustand-wheat-omega.vercel.app/notes/${id}`,
       siteName: "NoteHub",
       type: 'article',
       images: [
